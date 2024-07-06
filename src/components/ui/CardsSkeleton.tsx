@@ -13,7 +13,7 @@ const CardsSkeleton = ({ count = 12 }: IUserCardSkeleton) => {
       {products.map((id) => (
         <div
           key={id}
-          className='flex items-center bg-gray-100 h-[200px] p-1 md:p-1 md:px-8'></div>
+          className='flex items-center bg-gray-100 h-[200px] p-1 md:p-1 md:px-8 rounded-md'></div>
       ))}
     </div>
   );
