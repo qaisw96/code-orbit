@@ -31,7 +31,7 @@ git clone https://github.com/qaisw96/code-orbit.git
 
 ```bash
 
-cd github-search-spa
+cd code-orbit
 npm install  # or yarn install
 
 ```
