@@ -1,5 +1,7 @@
 const GITHUB_API_URL = 'https://api.github.com';
 
+const DEFAULT_ERROR = 'Error fetching data from GitHub';
+
 export const searchGithub = async (
   query: string = '',
   type: 'users' | 'repositories',
@@ -12,13 +14,13 @@ export const searchGithub = async (
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || 'Error fetching data from GitHub');
+      throw new Error(errorData.message || DEFAULT_ERROR);
     }
 
     const data = await response.json();
     return data.items;
   } catch (error) {
-    console.error('Error fetching data from GitHub:', error);
+    console.error(DEFAULT_ERROR, error);
     throw error;
   }
 };
@@ -31,13 +33,13 @@ export const getRepoForks = async (owner: string, repo: string) => {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.message || 'Error fetching repository forks');
+      throw new Error(errorData.message || DEFAULT_ERROR);
     }
 
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching repository forks:', error);
+    console.error(DEFAULT_ERROR, error);
     throw error;
   }
 };
