@@ -8,7 +8,7 @@ const UserCard: React.FC<IUserCardProps> = ({
   html_url,
 }) => (
   <div className='gap-3 items-center rounded-md shadow-sm relative bg-white'>
-    <div className='h-20 text-center relative flex justify-center bg-gradient-orange'>
+    <div className='h-20 text-center relative flex justify-center bg-gradient-orange rounded-s-md rounded-e-md'>
       <Image
         src={avatar_url}
         alt={login}

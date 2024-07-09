@@ -10,18 +10,13 @@ import CardsSkeleton from '@/components/ui/CardsSkeleton';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
 const HomeScreen = () => {
-  const {
-    results,
-    isLoading,
-    isLoadingMore,
-    error,
-    fetchData,
-    loadMore,
-    isInitialRendering,
-  } = useFetchData();
+  const { state, fetchData, loadMore, isInitialRendering } = useFetchData();
+
+  const { results, isLoading, isLoadingMore, error, forks } = state;
 
   const [query, setQuery] = useState('');
   const [type, setType] = useState<'users' | 'repositories'>('users');
+
   const targetRef = useRef(null);
 
   const onSearch = useCallback(
@@ -56,16 +51,16 @@ const HomeScreen = () => {
           <UserCardList users={results as IUserItem[]} />
         )}
         {type === 'repositories' && !isEmpty && (
-          <RepoCardList repos={results as IRepoItem[]} />
+          <RepoCardList repos={results as IRepoItem[]} forks={forks} />
         )}
-        {isEmpty && !isInitialRendering.current && (
+        {isEmpty && !isInitialRendering && (
           <p className='mt-10 text-white'>
             No {type === 'users' ? 'users' : 'repositories'} found.
           </p>
         )}
       </>
     );
-  }, [isLoading, results, type, error, isInitialRendering]);
+  }, [isLoading, results, type, error, isInitialRendering, forks]);
 
   return (
     <div className='container'>
@@ -78,7 +73,7 @@ const HomeScreen = () => {
       {isLoadingMore && (
         <p className='text-lg p-6 text-center text-white'>Loading more...</p>
       )}
-      {isInitialRendering.current && (
+      {isInitialRendering && (
         <p className='mt-10 text-white text-sm'>
           Select type ( users or Repos ) and enjoy searching ✨
         </p>

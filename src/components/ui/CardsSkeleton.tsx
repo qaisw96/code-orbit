@@ -9,7 +9,7 @@ const CardsSkeleton = ({ count = 12 }: IUserCardSkeleton) => {
 
   return (
     <div
-      className={`animate-pulse container mt-8  md:mt-7 grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
+      className={`animate-pulse mt-8  md:mt-7 grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4`}>
       {products.map((id) => (
         <div
           key={id}
