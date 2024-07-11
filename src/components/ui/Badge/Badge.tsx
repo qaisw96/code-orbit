@@ -1,8 +1,5 @@
 import React from 'react';
-
-interface IBadgeProps {
-  language: string;
-}
+import { IBadgeProps } from './Badge.types';
 
 const Badge: React.FC<IBadgeProps> = ({ language }) => {
   const getLanguageColor = (language: string) => {
