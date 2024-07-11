@@ -1,5 +1,4 @@
 const GITHUB_API_URL = 'https://api.github.com';
-
 const DEFAULT_ERROR = 'Error fetching data from GitHub';
 
 export const searchGithub = async (
