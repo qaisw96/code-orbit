@@ -44,6 +44,14 @@ npm run dev  # or yarn dev
 
 ```
 
+### Running Unit Tests
+
+```bash
+
+npm run test  # or yarn test
+
+```
+
 ## Examples
 
 After running the app
