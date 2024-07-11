@@ -62,23 +62,27 @@ const HomeScreen = () => {
   }, [isLoading, results, type, error, isInitialRendering, forks]);
 
   return (
-    <div className='container'>
-      <h2 className='mt-8 text-2xl text-white'>Code Orbit</h2>
-      <p className='text-gray-300 mt-4'>
-        Your one-stop-shop for out-of-this-world code searches! 🚀
-      </p>
-      <SearchBar onSearch={onSearch} />
-      {renderContent}
-      {isLoadingMore && (
-        <p className='text-lg p-6 text-center text-white'>Loading more...</p>
-      )}
-      {isInitialRendering && (
-        <p className='mt-10 text-white text-sm'>
-          Select type ( users or Repos ) and enjoy searching ✨
+    <>
+      <header className='container'>
+        <h2 className='mt-8 text-2xl text-white'>Code Orbit</h2>
+        <p className='text-gray-300 mt-4'>
+          Your one-stop-shop for out-of-this-world code searches! 🚀
         </p>
-      )}
-      <div ref={targetRef} />
-    </div>
+      </header>
+      <main className='container'>
+        <SearchBar onSearch={onSearch} />
+        {renderContent}
+        {isLoadingMore && (
+          <p className='text-lg p-6 text-center text-white'>Loading more...</p>
+        )}
+        {isInitialRendering && (
+          <p className='mt-10 text-white text-sm'>
+            Select type ( users or Repos ) and enjoy searching ✨
+          </p>
+        )}
+      </main>
+      <footer ref={targetRef} />
+    </>
   );
 };
 
