@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Badge from '../ui/Badge';
+import Badge from '../ui/Badge/Badge';
 import { IRepoCardProps } from './RepoCard.types';
 import ForksList from '../Fork/ForkList';
 

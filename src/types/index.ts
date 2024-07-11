@@ -7,7 +7,6 @@ export interface IUserItem {
 
 export interface IForkItem {
   id: number;
-  username: string;
   html_url: string;
   owner: {
     login: string;

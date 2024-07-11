@@ -71,9 +71,9 @@ const useFetchData = () => {
       );
 
       dispatch({ type: 'SET_FORKS', payload: forksMap });
-      dispatch({ type: 'SET_IS_FORKS_LOADING', payload: false });
     } catch {
       dispatch({ type: 'SET_FORKS_ERROR', payload: 'Failed to load forks.' });
+    } finally {
       dispatch({ type: 'SET_IS_FORKS_LOADING', payload: false });
     }
   }, []);
