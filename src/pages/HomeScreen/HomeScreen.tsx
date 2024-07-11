@@ -2,16 +2,15 @@
 
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { IUserItem, IRepoItem } from '@/types';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import useFetchData from '@/hooks/useFetchData';
 import SearchBar from '@/components/SearchBar/SearchBar';
 import UserCardList from '@/components/UserCard/UserCardList';
 import RepoCardList from '@/components/RepoCard/RepoCardList';
-import CardsSkeleton from '@/components/ui/CardsSkeleton';
-import useIntersectionObserver from '@/hooks/useIntersectionObserver';
+import CardsSkeleton from '@/components/ui/CardsSkeleton/CardsSkeleton';
 
 const HomeScreen = () => {
   const { state, fetchData, loadMore, isInitialRendering } = useFetchData();
-
   const { results, isLoading, isLoadingMore, error, forks } = state;
 
   const [query, setQuery] = useState('');

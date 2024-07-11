@@ -1,10 +1,7 @@
 import React from 'react';
+import { ICardSkeleton } from './CardsSkeleton.types';
 
-interface IUserCardSkeleton {
-  count?: number;
-}
-
-const CardsSkeleton = ({ count = 12 }: IUserCardSkeleton) => {
+const CardsSkeleton = ({ count = 12 }: ICardSkeleton) => {
   const products = Array.from(Array(count).keys());
 
   return (
@@ -13,7 +10,9 @@ const CardsSkeleton = ({ count = 12 }: IUserCardSkeleton) => {
       {products.map((id) => (
         <div
           key={id}
-          className='flex items-center bg-gray-100 h-[200px] p-1 md:p-1 md:px-8 rounded-md'></div>
+          className='flex items-center bg-gray-100 h-[200px] p-1 md:p-1 md:px-8 rounded-md'
+          data-testid='skeleton-card'
+        />
       ))}
     </div>
   );
